@@ -8,7 +8,7 @@
 
 ## 阅读方式
 
-[Github](https://github.com/DocsHome/spring-docs/SUMMARY.md) | [Gitbook](https://www.gitbook.com/book/docshome/spring-docs)
+[Github](https://github.com/DocsHome/spring-docs/blob/master/SUMMARY.md) | [Gitbook](https://www.gitbook.com/book/docshome/spring-docs)
 
 ## 项目状态
 
