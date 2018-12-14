@@ -4,11 +4,11 @@
 
 为依赖注入，事务管理，Web应用程序，数据访问，消息传递等提供核心支持。
 
-该项目为 Spring Framework文档翻译项目，基于 [Spring 5.1.4](https://spring.io/projects/spring-framework) 的官方文档进行翻译。
+该项目为 Spring Framework文档翻译项目，基于 [Spring 5.1.3](https://spring.io/projects/spring-framework) 的官方文档进行翻译。
 
 ## 阅读方式
 
-[Github](https://github.com/DocsHome/springboot/blob/master/SUMMARY.md) | [Gitbook](https://www.gitbook.com/book/docshome/springboot)
+[Github](https://github.com/DocsHome/spring-docs/SUMMARY.md) | [Gitbook](https://www.gitbook.com/book/docshome/spring-docs)
 
 ## 项目状态
 
