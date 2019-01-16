@@ -64,7 +64,7 @@ Spring Expression Language（简称“SpEL”）是一种强大的表达式语�
     Expression exp = parser.parseExpression("'Hello World'"); (1)
     String message = (String) exp.getValue();
 
-**(1)**.变量的值为“Hello World”。 `'Hello World'`.
+**(1)。**变量的值为“Hello World”。 `'Hello World'`.
 
 您最有可能使用的SpEL类和接口位于`org.springframework.expression`包及其子包中，例如`spel.support`。
 
@@ -78,7 +78,7 @@ SpEL支持广泛的功能，例如调用方法，访问属性和调用构造函�
     Expression exp = parser.parseExpression("'Hello World'.concat('!')"); (1)
     String message = (String) exp.getValue();
 
-**(1)**.变量现在的值为 'Hello World!'.
+**(1)。**变量现在的值为 'Hello World!'.
 
 以下调用JavaBean属性的示例调用`String`属性`Bytes`property :
 
@@ -88,7 +88,7 @@ SpEL支持广泛的功能，例如调用方法，访问属性和调用构造函�
     Expression exp = parser.parseExpression("'Hello World'.bytes"); (1)
     byte[] bytes = (byte[]) exp.getValue();
 
-**(1).**该行将文字转换为字节数组。
+**(1)。**该行将文字转换为字节数组。
 
 SpEL还支持嵌套属性，使用标准的点符号。即`prop1.prop2.prop3`链式写法和设置属性值。也可以访问公共字段。 以下示例显示如何使用点表示法来获取文字的长度：
 
@@ -98,7 +98,7 @@ SpEL还支持嵌套属性，使用标准的点符号。即`prop1.prop2.prop3`链
     Expression exp = parser.parseExpression("'Hello World'.bytes.length"); (1)
     int length = (Integer) exp.getValue();
 
-**(1)**.`'Hello World'.bytes.length` 给出了字符串的长度。
+**(1)。**`'Hello World'.bytes.length` 给出了字符串的长度。
 
 可以调用String的构造函数而不是使用字符串文字，如以下示例所示：
 
@@ -106,7 +106,7 @@ SpEL还支持嵌套属性，使用标准的点符号。即`prop1.prop2.prop3`链
     Expression exp = parser.parseExpression("new String('hello world').toUpperCase()"); (1)
     String message = exp.getValue(String.class);
 
-**(1)**.从构造一个新的`String`对象并使其成为大写。
+**(1)。**从构造一个新的`String`对象并使其成为大写。
 
 请注意泛型方法的使用: `public <T> T getValue(Class<T> desiredResultType)`。使用此方法不需要将表达式的值转换为所需的结果类型。如果该值不能转换为类型`T`或使用注册的类型转换器转换， 则将抛出`EvaluationException`异常。
 
@@ -129,7 +129,7 @@ SpEL的更常见用法是提供针对特定对象实例（称为根对象）计�
     boolean result = exp.getValue(tesla, Boolean.class);
     // result == true
 
-**(1).**将`name`解析为表达式。
+**(1)。**将`name`解析为表达式。
 
 <a id="expressions-evaluation-context"></a>
 

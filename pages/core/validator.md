@@ -242,11 +242,13 @@ Table 12. 内置`PropertyEditor` 实现
 
 Spring使用`java.beans.PropertyEditorManager`设置属性编辑器（可能需要）的搜索路径。搜索路径还包括 `sun.bean.editors`，其中包括`Font`, `Color`和大多数基本类型等类型的`PropertyEditor`实现。 注意，标准的JavaBeans架构可以自动发现 `PropertyEditor`类（无需显式注册），前提是此类与需处理的类位于同一个包，并且与该类具有相同的名称。并以`Editor`单词结尾。 可以使用以下类和包结构，这足以使`SomethingEditor`类被识别并用作`Something`类型属性的`PropertyEditor`。
 
+```
 com
   chank
     pop
       Something
       SomethingEditor // the PropertyEditor for the Something class
+```
 
 请注意，您也可以在此处使用标准 `BeanInfo` JavaBeans机制（ [这里](https://docs.oracle.com/javase/tutorial/javabeans/advanced/customization.html)描述的是无关紧要的细节）。 以下示例使用`BeanInfo`机制使用关联类的属性显式注册一个或多个`PropertyEditor`实例：
 

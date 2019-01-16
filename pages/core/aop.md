@@ -1524,7 +1524,7 @@ Spring AOP是基于代理的，在编写自定义切面或使用Spring框架提�
 
 如果在对象引用上调用方法，则直接在该对象引用上调用该方法，如下图所示：:
 
-![aop proxy plain pojo call](https://github.com/DocsHome/spring-docs/blob/master/pages/aop-proxy-plain-pojo-call.png)
+![aop proxy plain pojo call](https://github.com/DocsHome/spring-docs/blob/master/pages/images/aop-proxy-plain-pojo-call.png)
 
     public class Main {
 
@@ -1883,6 +1883,7 @@ java -javaagent:C:/projects/foo/lib/global/spring-instrument.jar foo.Main
 
 主程序的输出将如下所示。（前面已经介绍了`Thread.sleep(..)`声明为 `calculateEntitlement()`实现使分析器实际上捕获了比0毫秒更多的东西（`01234`毫秒不是AOP引入的开销） ）下面的清单显示了输出 我们运行我们的探查器时得到了:
 
+```
 Calculating entitlement
 
 StopWatch 'ProfilingAspect': running time (millis) = 1234
@@ -1890,6 +1891,7 @@ StopWatch 'ProfilingAspect': running time (millis) = 1234
 ms     %     Task name
 \-\-\-\-\-\- \-\-\-\-\- \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
 01234  100%  calculateEntitlement
+```
 
 由于LTW是会对AspectJ产生影响的，而不是仅仅局限在Spring的beans。在 `Main`程序的轻微变化会产生相同的结果:
 
