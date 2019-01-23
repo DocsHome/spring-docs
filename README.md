@@ -1,7 +1,8 @@
 # Spring  Framework 中文文档
 
-![Spring Boot](https://spring.io/img/homepage/icon-spring-framework.svg)
+[![GitHub stars](https://img.shields.io/github/stars/DocsHome/spring-docs.svg?style=social&label=Stars)](https://github.com/DocsHome/spring-docs) [![GitHub pull requests](https://img.shields.io/github/issues-pr/DocsHome/spring-docs.svg)](https://github.com/DocsHome/spring-docs) [![GitHub last commit](https://img.shields.io/github/last-commit/DocsHome/spring-docs.svg)](https://github.com/DocsHome/spring-docs)
 
+![Spring Boot](https://spring.io/img/homepage/icon-spring-framework.svg)
 为依赖注入，事务管理，Web应用程序，数据访问，消息传递等提供核心支持。
 
 该项目为 Spring Framework文档翻译项目，基于 [Spring 5.1.3](https://spring.io/projects/spring-framework) 的官方文档进行翻译。
