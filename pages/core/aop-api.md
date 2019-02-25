@@ -1,23 +1,23 @@
-```
+
 <a id="aop"></a>
-```
+
 
 [](#aop-api)6\. Spring AOP APIs
 -------------------------------
 
 前一章介绍了Spring使用@AspectJ和基于schema的切面定义对AOP的支持。 在本章中，将讨论Spring 1.2应用程序中使用的较底层的Spring AOP API和AOP支持。 对于新的应用程序，推荐使用前一章中介绍的Spring 2.0和更高版本的AOP支持，但是在使用现有应用程序或阅读书籍和文章时，您可能会遇到Spring 1.2方式的示例. Spring 5仍然向后兼容了Spring 1.2。本章中描述的所有内容在Spring 5中都得到了完全支持。
 
-```
+
 <a id="aop-api-pointcuts"></a>
-```
+
 
 ### [](#aop-api-pointcuts)6.1. Spring中的切点API
 
 本节描述了Spring如何处理切点的关键概念。
 
-```
+
 <a id="op-api-concepts"></a>
-```
+
 
 #### [](#aop-api-concepts)6.1.1. 概念
 
@@ -59,9 +59,9 @@ Spring的切点模式能够让切点独立于通知类型。针对不同的通�
 
 如果可以，请尝试将切点设为静态的，从而允许AOP框架在创建AOP代理时缓存对切点评估的结果。
 
-```
+
 <a id="aop-api-pointcut-ops"></a>
-```
+
 
 #### [](#aop-api-pointcut-ops)6.1.2. 切点的操作
 
@@ -69,9 +69,9 @@ Spring支持对切点的各种操作，特别是并集和交集
 
 并集意味着这个方法只要有一个切点匹配，交集意味着这个方法需要所有的切点都匹配。 并集使用得更广，您可以使用`org.springframework.aop.support.Pointcuts`类中的静态方法或在同一个包中使用`ComposablePointcut`类来组合切 点。但是，使用AspectJ的切点表达式往往是更简单的方式。
 
-```
+
 <a id="aop-api-pointcuts-aspectj"></a>
-```
+
 
 #### [](#aop-api-pointcuts-aspectj)6.1.3. AspectJ切点表达式
 
@@ -79,9 +79,7 @@ Spring支持对切点的各种操作，特别是并集和交集
 
 有关支持的AspectJ切点语义的讨论， [请参见上一章](#aop)
 
-```
 <a id="aop-api-pointcuts-impls"></a>
-```
 
 #### [](#aop-api-pointcuts-impls)6.1.4.方便的切点实现
 
@@ -95,9 +93,7 @@ Spring提供了几个方便的切点实现，您可以直接使用其中一些�
 
 本节的其余部分描述了Spring中包含的一些静态切点实现。
 
-```
 <a id="aop-api-pointcuts-regex"></a>
-```
 
 ###### [](#aop-api-pointcuts-regex)正则表达式切点
 
@@ -134,17 +130,13 @@ Spring提供了一个方便使用的类 -`RegexpMethodPointcutAdvisor`。 它允
 
 您可以将`RegexpMethodPointcutAdvisor` 与任何`Advice`类型一起使用。
 
-```
 <a id="aop-api-pointcuts-attribute-driven"></a>
-```
 
 ###### [](#aop-api-pointcuts-attribute-driven)基于属性的切点
 
 静态切点的一个重要特征是元数据驱动的切点。它将使用元数据属性的值，通常是使用源等级的元数据。
 
-```
 <a id="aop-api-pointcuts-dynamic"></a>
-```
 
 ##### [](#aop-api-pointcuts-dynamic)动态的切点
 
@@ -152,9 +144,7 @@ Spring提供了一个方便使用的类 -`RegexpMethodPointcutAdvisor`。 它允
 
 主要的例子是`control flow` 切点
 
-```
 <a id="aop-api-pointcuts-cflow"></a>
-```
 
 ###### [](#aop-api-pointcuts-cflow)控制流切点
 
@@ -162,9 +152,7 @@ Spring控制流切点在概念上类似于AspectJ的`cflow`切点，虽然功能
 
 在运行时评估控制流切点的成本远远高于其他动态切点。 在Java 1.4中，成本大约是其他动态切入点的五倍。
 
-```
 <a id="aop-api-pointcuts-superclasses"></a>
-```
 
 #### [](#aop-api-pointcuts-superclasses)6.1.5. 切点超类
 
@@ -183,9 +171,7 @@ Spring提供了相当有用的切点超类,帮助开发者实现自定义切点.
 
 您可以在Spring 1.0 RC2及更高版本中使用任何通知类型的自定义切点。
 
-```
 <a id="aop-api-pointcuts-custom"></a>
-```
 
 
 
@@ -195,17 +181,13 @@ Spring提供了相当有用的切点超类,帮助开发者实现自定义切点.
 
 Later versions of Spring may offer support for “semantic pointcuts” as offered by JAC — for example, “all methods that change instance variables in the target object.”
 
-```
 <a id="aop-api-advice"></a>
-```
 
 ### [](#aop-api-advice)6.2. Spring的通知API
 
 接下来介绍Spring AOP是怎么样处理通知的
 
-```
 <a id="aop-api-advice-lifecycle"></a>
-```
 
 #### [](#aop-api-advice-lifecycle)6.2.1. 通知的生命周期
 
@@ -217,17 +199,13 @@ Later versions of Spring may offer support for “semantic pointcuts” as offer
 
 在同一个AOP代理中，可以使用混合共享的和单实例的通知。
 
-```
 <a id="aop-api-advice-types"></a>
-```
 
 #### [](#aop-api-advice-types)6.2.2. Spring中的通知类型
 
 Spring提供了几种通知类型，并且可以扩展以支持任意通知类型。 本节介绍基本概念和标准通知类型。
 
-```
 <a id="aop-api-advice-around"></a>
-```
 
 ##### [](#aop-api-advice-around)拦截环绕通知
 
@@ -258,9 +236,7 @@ Spring使用方法拦截来满足AOP`Alliance` 接口的要求. `MethodIntercept
 
 `MethodInterceptor` 提供与其他AOP Alliance兼容的AOP实现。本节其余部分讨论的其他通知类型实现了常见的AOP概念，但这特定于使用Spring的方式。 尽管使用最具体的通知类型切面总是有优势的，但如果希望在另一个AOP框架中运行该切面面，，则应坚持使用`MethodInterceptor`的通知。请注意，目前切点不会在框架之间进行交互操作， 并且目前的AOP Alliance并没有定义切点接口。
 
-```
 <a id="aop-api-advice-before"></a>
-```
 
 ##### [](#aop-api-advice-before)前置通知
 
@@ -296,9 +272,7 @@ Spring使用方法拦截来满足AOP`Alliance` 接口的要求. `MethodIntercept
 
 前置通知可以用在任意的切点上
 
-```
 <a id="aop-api-advice-throws"></a>
-```
 
 ##### [](#aop-api-advice-throws)异常通知
 
@@ -343,9 +317,7 @@ Spring使用方法拦截来满足AOP`Alliance` 接口的要求. `MethodIntercept
 
 异常通知可以被用在任意切点上
 
-```
 <a id="aop-api-advice-after-returning"></a>
-```
 
 ##### [](#aop-api-advice-after-returning)后置返回通知
 
@@ -379,9 +351,7 @@ Spring中使用后置返回通知必需实现`org.springframework.aop.AfterRetur
 
 后置返回通知能被任何切点使用
 
-```
 <a id="aop-api-advice-introduction"></a>
-```
 
 ##### [](#aop-api-advice-introduction)引入通知
 
@@ -476,9 +446,7 @@ Spring将引入通知看作是一种特殊的拦截器通知
 
 可以使用 `Advised.addAdvisor()`方法或在在XML配置中（推荐此法）编写通知者，这与其他任何的通知者一样。下面讨论的所有代理创建选项， 包括自动代理创建，都正确处理了引入和有状态的mixin。
 
-```
 <a id="aop-api-advisor"></a>
-```
 
 ### [](#aop-api-advisor)6.3.Spring中通知者的API
 
@@ -488,9 +456,7 @@ Spring将引入通知看作是一种特殊的拦截器通知
 
 在同一个AOP代理中，可以在Spring中混合使用通知者和通知类型。例如，可以在一个代理配置中同时使用环绕通知、异常通知和前置通知。Spring自动创建必要的拦截链。
 
-```
 <a id="aop-pfb"></a>
-```
 
 ### [](#aop-pfb)6.4. 使用`ProxyFactoryBean`来创建AOP代理
 
@@ -500,9 +466,7 @@ Spring AOP支持也使用到了工厂bean
 
 在Spring中创建AOP代理的基本方法是使用`org.springframework.aop.framework.ProxyFactoryBean`. 这将完全控制切点和应用的通知及顺序。 但是，如果不需要这样的控制，可以有更简单的选项。
 
-```
 <a id="aop-pfb-1"></a>
-```
 
 #### [](#aop-pfb-1)6.4.1. 基础设置
 
@@ -510,9 +474,7 @@ Spring AOP支持也使用到了工厂bean
 
 使用`ProxyFactoryBean`或另一个IoC识别类来创建AOP代理的最重要的好处之一是，它意味着建议和切点也可以由IoC容器管理。这是一个强大的功能，能够实现其他AOP框架无法实现的方法。 例如，通知本身可以引用应用程序对象（除了目标，它应该在任何AOP框架中可用），这得益于依赖注入提供的所有可插入功能。
 
-```
 <a id="aop-pfb-2"></a>
-```
 
 #### [](#aop-pfb-2)6.4.2. JavaBean 属性
 
@@ -547,9 +509,7 @@ Spring AOP支持也使用到了工厂bean
 *   singleton:工厂强制返回单个对象，无论调用`getObject()` 方法多少次。几个`FactoryBean`的实现都提供了这样的方法。默认值是`true`。 如果想使用有状态的通知。例如，对于有状态的mixins - 使用原型建议以及单例值`false`。
 
 
-```
 <a id="aop-pfb-proxy-types"></a>
-```
 
 #### [](#aop-pfb-proxy-types)6.4.3. 基于JDK和基于CGLIB的代理
 
@@ -567,9 +527,7 @@ Spring AOP支持也使用到了工厂bean
 
 如果`ProxyFactoryBean`的`proxyInterfaces`属性具有没有被设置，而目标类确实实现一个或多个接口，则 `ProxyFactoryBean`将自动检测选择，当目标类实际上至少实现一个接口。 将创建JDK代理。实际上代理的接口将是目标类实现的所有接口。事实上，这与简单地提供了目标类实现到 `proxyInterfaces` 属性的每个接口的列表相同。但是，这明显减轻了负担，还避免配置错误。
 
-```
 <a id="aop-api-proxying-intf"></a>
-```
 
 #### [](#aop-api-proxying-intf)6.4.4. 代理接口
 
@@ -652,9 +610,7 @@ Spring AOP支持也使用到了工厂bean
 
 这样做的好处是只有一个`Person`类型的对象，如果想阻止应用程序上下文的用户获得对un-advised对象的引用，或者需要避免使用Spring IoC自动装配的任何含糊不清的情况， 那么这个对象就很有用。`ProxyFactoryBean`定义是自包含的，这也是一个好处。但是，有时能够从工厂获得un-advised目标可能是一个优势（例如，在某些测试场景中）。。
 
-```
 <a id="aop-api-proxying-class"></a>
-```
 
 #### [](#aop-api-proxying-class)6.4.5. 代理类
 
@@ -675,9 +631,7 @@ CGLIB代理通常对于用户应当是透明的，然而还有需考虑一些问
 
 CGLIB代理和动态代理之间几乎没有性能差异。 从Spring 1.0开始，动态代理略快一些。 但是，这可能会在未来发生变化。 在这种情况下，性能不应该是决定性的考虑因素。
 
-```
 <a id="aop-global-advisors"></a>
-```
 
 #### [](#aop-global-advisors)6.4.6. 使用全局的通知者
 
@@ -695,9 +649,7 @@ CGLIB代理和动态代理之间几乎没有性能差异。 从Spring 1.0开始�
     <bean id="global_debug" class="org.springframework.aop.interceptor.DebugInterceptor"/>
     <bean id="global_performance" class="org.springframework.aop.interceptor.PerformanceMonitorInterceptor"/>
 
-```
 <a id="aop-concise-proxy"></a>
-```
 
 ### [](#aop-concise-proxy)6.5. 简明的代理定义
 
@@ -743,9 +695,7 @@ CGLIB代理和动态代理之间几乎没有性能差异。 从Spring 1.0开始�
 
 请注意，在上面的例子中，通过使用`abstract`属性显式地将父级的bean定义标记为抽象的（`abstract`），[如前所述](#beans-child-bean-definitions)，这样它就不会被实例化。应用程序上下文（但不是简单的bean工厂）将默认提前实例化所有的单例。 因此，重要的是（至少对于单例bean），如果有一个（父级）bean定义，只打算将它用作模板，而这个定义指定一个类，必须确保将抽象（`abstract`）属性设置为`true`， 否则应用程序上下文将实际尝试提前实例化它。
 
-```
 <a id="aop-prog"></a>
-```
 
 ### [](#aop-prog)6.6. 使用`ProxyFactory`编程创建AOP代理
 
@@ -766,9 +716,7 @@ CGLIB代理和动态代理之间几乎没有性能差异。 从Spring 1.0开始�
 
 将AOP代理创建与IoC框架集成是多数应用程序的最佳实践，因此强烈建议从Java代码中外部配置使用AOP。
 
-```
 <a id="aop-api-advised"></a>
-```
 
 ### [](#aop-api-advised)6.7.处理被通知对象
 
@@ -821,9 +769,7 @@ CGLIB代理和动态代理之间几乎没有性能差异。 从Spring 1.0开始�
 
 根据您创建代理的方式，通常可以设置`frozen` 标志。在这种情况下，通知的 `isFrozen()` 方法将返回`true`，任何通过添加或删除修改通知的尝试都将导致`AopConfigException`异常。 在某些情况下冻结通知的对象状态的功能很有用（例如，防止调用代码删除安全拦截器）。如果已知的运行时通知不需要修改的话，它也可以在Spring 1.1中使用以获得最好的优化。
 
-```
 <a id="aop-autoproxy"></a>
-```
 
 ### [](#aop-autoproxy)6.8. 使用自动代理功能
 
@@ -840,9 +786,7 @@ Spring还支持使用 “auto-proxy”（自动代理） 的bean定义, 允许�
 *   自动代理创建的一个特例值得单独考虑：由源代码级别的元数据属性驱动的自动代理创建。
 
 
-```
 <a id="aop-autoproxy-choices"></a>
-```
 
 #### [](#aop-autoproxy-choices)6.8.1. 自动代理bean的定义
 
@@ -869,9 +813,7 @@ Spring还支持使用 “auto-proxy”（自动代理） 的bean定义, 允许�
 
 在上例中，名称匹配的Bean定义（例如`jdkMyBean` 和 `onlyJdk`）是带有目标类的、普通的、老式的bean定义。 AOP代理由`BeanNameAutoProxyCreator`自动创建。相同的通知也适用于所有匹配到的bean。注意，如果使用通知着（而不是上述示例中的拦截器），那么切点可能随bean的不同用处而变化。
 
-```
 <a id="aop-api-autoproxy-default"></a>
-```
 
 ##### [](#aop-api-autoproxy-default)`DefaultAdvisorAutoProxyCreator`
 
@@ -910,9 +852,7 @@ Spring还支持使用 “auto-proxy”（自动代理） 的bean定义, 允许�
 
 `DefaultAdvisorAutoProxyCreator`提供对过滤器（filtering）的支持（使用命名约定，以便只评估某些通知者，允许在同一工厂中使用多个不同配置的AdvisorAutoProxyCreators）和排序。 通知者可以实现`org.springframework.core.Ordered`接口，以确保正确的排序，如果需要排序的话。 上面的例子中使用的`TransactionAttributeSourceAdvisor`类具有具有可配置的排序值， 默认的设置是无序的。
 
-```
 <a id="aop-targetsource"></a>
-```
 
 ### [](#aop-targetsource)6.9. 使用`TargetSource`实现
 
@@ -926,9 +866,7 @@ Spring提供了`TargetSource`概念，定义在 `org.springframework.aop.TargetS
 
 当使用自定义的target source,目标通常需要配置成原型而不是单例的bean定义。 这允许Spring按需时创建新的目标实例
 
-```
 <a id="aop-ts-swap"></a>
-```
 
 #### [](#aop-ts-swap)6.9.1. Hot-swappable Target Sources
 
@@ -957,9 +895,7 @@ Spring提供了`TargetSource`概念，定义在 `org.springframework.aop.TargetS
 
 虽然这个例子没有添加任何通知 ， 也没有必要添加通知来使用`TargetSource`，当然任意的 `TargetSource`都可以和任意的通知一起使用。
 
-```
 <a id="aop-ts-pool"></a>
-```
 
 #### [](#aop-ts-pool)6.9.2. 创建目标源池
 
@@ -1010,9 +946,9 @@ The cast is defined as follows:
 
 使用自动代理可以创建更简单的池，可以设置任何自动代理创建者使用的`TargetSource` 。
 
-```
+
 <a id="aop-ts-prototype"></a>
-```
+
 
 #### [](#aop-ts-prototype)6.9.3. 原型目标源
 
@@ -1026,9 +962,7 @@ The cast is defined as follows:
 
 唯一的属性是目标bean的名称。在`TargetSource`实现中使用继承来确保一致的命名。与池化目标源一样，目标bean必须是原型bean定义。
 
-```
 <a id="aop-ts-threadlocal"></a>
-```
 
 #### [](#aop-ts-threadlocal)6.9.4. `ThreadLocal` 的目标源
 
@@ -1040,9 +974,7 @@ The cast is defined as follows:
 
 当在多线程和多类加载器环境中错误地使用它们时，`ThreadLocal`会带来严重的问题（可能导致内存泄漏）。您应该始终考虑将threadlocal包装在其他类中，并且永远不要直接使用 `ThreadLocal`本身（除了在包装类中）。 另外，应该始终记得正确设置和取消设置（后者只需调用`ThreadLocal.set(null)`方法）线程的本地资源。在任何情况下都应该写取消设置，如果不取消将会出问题。 Spring的`ThreadLocal`支持此设置并且应当被考虑支持使用`ThreadLocal`而不是手动操作代码。
 
-```
 <a id="aop-extensibility"></a>
-```
 
 ### [](#aop-extensibility)6.10. 定义新的通知类型
 
