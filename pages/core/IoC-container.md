@@ -9,7 +9,7 @@
 
 ### [](#beans-introduction)1.1. Spring IoC容器和bean的介绍
 
-本章介绍Spring框架中控制反转 [Inversion of Control](https://github.com/DocsHome/spring-docs/blob/master/pages/overview/overview.md#background-ioc) 的实现. IOC与大家熟知的依赖注入同理，. 这是一个通过依赖注入对象的过程 也就是说，它们所使用的对象，是通过构造函数参数，工厂方法的参数或这是从工厂方法的构造函数或返回值的对象实例设置的属性，然后容器在创建bean时注入这些需要的依赖。 这个过程相对普通创建对象的过程是反向的（因此称之为IoC），bean本身通过直接构造类来控制依赖关系的实例化或位置，或提供诸如服务定位器模式之类的机制。
+本章介绍Spring框架中控制反转 [Inversion of Control](https://github.com/DocsHome/spring-docs/blob/master/pages/overview/overview.md#background-ioc) 的实现. IOC与大家熟知的依赖注入同理，指的是对象仅通过构造函数参数、工厂方法的参数或在对象实例构造以后或从工厂方法返回以后，在对象实例上设置的属性来定义它们的依赖关系（即它们使用的其他对象). 然后容器在创建bean时注入这些需要的依赖。 这个过程基本上是bean本身的逆过程（因此称为IOC），通过使用类的直接构造或服务定位器模式等机制来控制其依赖项的实例化或位置。
 
 `org.springframework.beans` 和 `org.springframework.context` 是实现Spring IOC容器框架的基础. [`BeanFactory`](https://docs.spring.io/spring-framework/docs/5.1.3.BUILD-SNAPSHOT/javadoc-api/org/springframework/beans/factory/BeanFactory.html) 接口提供了一种更先进的配置机制来管理任意类型的对象. [`ApplicationContext`](https://docs.spring.io/spring-framework/docs/5.1.3.BUILD-SNAPSHOT/javadoc-api/org/springframework/context/ApplicationContext.html) 是`BeanFactory`的子接口. 他提供了:
 
