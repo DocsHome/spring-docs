@@ -11,9 +11,13 @@
 
 [Github](https://github.com/DocsHome/spring-docs/blob/master/SUMMARY.md) | [Gitbook](https://www.gitbook.com/book/docshome/spring-docs)
 
+[在线阅读方式](https://www.jcohy.com/projects/spring-framework)
+
 ## 项目状态
 
 计划中……
+
+新的项目计划：[jcohy-docs](https://github.com/jcohy/jcohy-docs)
 
 ## 许可
 ![](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)
