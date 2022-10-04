@@ -3937,7 +3937,7 @@ Table 6. Spring的组件模型元素 vs JSR-330 变量
 
 Spring新的基于Java配置的核心内容是`@Configuration`注解的类和`@Bean`注解的方法。
 
-`@Bean`注解用于表明方法的实例化，、配置和初始化都是由Spring IoC容器管理的新对象，对于那些熟悉Spring的`<beans/>`XML配置的人来说， `@Bean`注解扮演的角色与`<beans/>`元素相同。开发者可以在任意的Spring `@Component`中使用`@Bean`注解方法 ，但大多数情况下，`@Bean`是配合`@Configuration`使用的。
+`@Bean`注解用于表明方法的实例化，、配置和初始化都是由Spring IoC容器管理的新对象，对于那些熟悉Spring的`<beans/>`XML配置的人来说， `@Bean`注解扮演的角色与`<bean />`元素相同。开发者可以在任意的Spring `@Component`中使用`@Bean`注解方法 ，但大多数情况下，`@Bean`是配合`@Configuration`使用的。
 
 使用`@Configuration`注解类时，这个类的目的就是作为bean定义的地方。此外，`@Configuration`类允许通过调用同一个类中的其他`@Bean`方法来定义bean间依赖关系。 最简单的`@Configuration`类如下所示：
 
@@ -4927,7 +4927,7 @@ public DataSource dataSource() throws Exception {
 }
 ```
 
-问题是如何根据当前环境在使用这两种变体之间切换。随着时间的推移，Spring用户已经设计了许多方法来完成这项工作，通常依赖于系统环境变量和包含`${placeholder}`标记的XML`<import/>`语句的组合， 这些标记根据值解析为正确的配置文件路径一个环境变量。 Bean定义profiles是核心容器功能，可为此问题提供解决方案。
+问题是如何根据当前环境在使用这两种变体之间切换。随着时间的推移，Spring 用户已经设计了许多方法来完成这项工作，通常依赖于系统环境变量和包含`${placeholder}`标记的XML`<import/>`语句的组合， 这些标记根据值解析为正确的配置文件路径一个环境变量。 Bean 定义 profiles 是核心容器功能，可为此问题提供解决方案。
 
 概括一下上面的场景，环境决定bean定义,最后发现,我们需要在某些上下文环境中使用某些bean,在其他环境中则不用这些bean.或者说, 在场景A中注册一组bean定义,而在场景B中注册另外一组。先看看如何通过修改配置来完成此需求：
 
